@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .success-message {
+            display: none;
+            color: green;
+            margin-top: 10px;
+        }
+        .error-message {
+            display: none;
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm" action="#" onsubmit="return validateForm()">
+        <h2>Login</h2>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+        <p class="success-message" id="successMessage">Login successful</p>
+        <p class="error-message" id="errorMessage">Please try again</p>
+    </form>
+
+    <script>
+        var credentials = [
+            { username: 'Rohan', password: 'rohan1234' },
+            { username: 'Alice', password: 'alice2023' },
+            { username: 'Bob', password: 'bobiscool' },
+            { username: 'John', password: 'johnDoe45' },
+            { username: 'Emily', password: 'emily_789' },
+            { username: 'David', password: 'david1987' },
+            { username: 'Sophia', password: 'sophia123' },
+            { username: 'Michael', password: 'michael456' },
+            { username: 'Emma', password: 'emma_567' },
+            { username: 'Matthew', password: 'matthew789' },
+            { username: 'Olivia', password: 'olivia_234' },
+            { username: 'William', password: 'william567' },
+            { username: 'Ava', password: 'ava_890' },
+            { username: 'James', password: 'james123' },
+            { username: 'Charlotte', password: 'charlotte_456' }
+        ];
+
+        function validateForm() {
+            var enteredUsername = document.getElementById('username').value;
+            var enteredPassword = document.getElementById('password').value;
+
+            for (var i = 0; i < credentials.length; i++) {
+                var validUsername = credentials[i].username;
+                var validPassword = credentials[i].password;
+
+                if (enteredUsername === validUsername && enteredPassword === validPassword) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                    // Redirect to the Rickroll video
+                    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+                    return false; // Prevent form submission
+                }
+            }
+
+            // If no matching credentials found
+            document.getElementById('errorMessage').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>
